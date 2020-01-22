@@ -11,6 +11,12 @@ class Blog(models.Model):
 
     class Meta():
         verbose_name_plural = 'Blog'
-    
+
     def __str__(self):
-        return self.title + " " + str(self.published_date)
+        return self.title + " " + self.published_date.strftime('%b %e %Y')
+
+    def body_summary(self):
+        return self.body[:100] + " ..."
+    
+    def published_date_formatted(self):
+        return self.published_date.strftime('%b %e %Y')

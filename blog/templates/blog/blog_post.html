@@ -5,9 +5,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
-    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
-    <meta name="generator" content="Jekyll v3.8.6">
-    <title>Portfolio Home Page</title>
+    <title>{{blog_post.title}}</title>
+
 
     <!-- Bootstrap core CSS -->
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
@@ -43,6 +42,7 @@
 </head>
 
 <body>
+
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <a class="navbar-brand" href="{% url 'home' %}">Cesar Giulietti</a>
@@ -61,37 +61,30 @@
     </header>
 
     <main role="main">
-        <div class="jumbotron text-center">
-            <div class="container">
-                <h1 class="pt-3">Welcome to the Blog</h1>
-                <h5>In this section you can find posts related to the portfolio projects</h5>
+
+        <!-- Main jumbotron for a primary marketing message or call to action -->
+        <div class="jumbotron">
+            <div class="container text-center">
+                <h1 class="display-3">{{blog_post.title}}</h1>
             </div>
         </div>
 
         <div class="container">
-            <h2>Latest Post</h2>
-            <hr>
             <!-- Example row of columns -->
             <div class="row">
-                {% for post in blog_posts.all %}
-                <div class="col-md-6">
-                    <div class="card text-white bg-dark">
-                        <!-- <img class="card-img-top" src="{{post.image.url}}" alt="no-image"> -->
-                        <div class="card-body">
-                            <h3 class="card-title">{{post.title}}</h3>
-                            <p class="card-text">{{post.published_date_formatted}}</p>
-                            <p class="card-text">{{post.body_summary}}</p>
-                            <a href="{% url 'detailed_view' post.id %}" class="card-link">See More...</a>
-                        </div>
-                    </div>
+                <div class="col-md-2"></div>
+                <div class="col-md-8">
+                    <p>Date Published: {{blog_post.published_date}}</p>
+                    <hr>
+                    <p>{{blog_post.body}}</p>
+                    <p><a class="btn btn-primary" href="{% url 'bloghome' %}" role="button">Back to Posts </a></p>
                 </div>
-                {% endfor %}
+                <div class="col-md-2"></div>
             </div>
-            <hr>
         </div> <!-- /container -->
     </main>
 
-    <footer class="text-muted">
+    <footer class="container">
         <div class="container text-center pt-3">
             <p>&copy; Cesar Giulietti {% now "Y" %}</p>
         </div>
