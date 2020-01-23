@@ -71,15 +71,13 @@
 
         <div class="container">
             <!-- Example row of columns -->
-            <div class="row">
-                <div class="col-md-2"></div>
-                <div class="col-md-8">
+            <div class="row justify-content-md-center">
+                <div class="col">
                     <p>Date Published: {{blog_post.published_date}}</p>
                     <hr>
                     <p>{{blog_post.body}}</p>
                     <p><a class="btn btn-primary" href="{% url 'bloghome' %}" role="button">Back to Posts </a></p>
                 </div>
-                <div class="col-md-2"></div>
             </div>
         </div> <!-- /container -->
     </main>
